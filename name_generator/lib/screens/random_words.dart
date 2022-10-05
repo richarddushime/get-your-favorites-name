@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:name_generator/btn/another.dart';
+import 'package:name_generator/screens/another.dart';
 
 class RandomWords extends StatefulWidget {
   const RandomWords({super.key});
@@ -49,23 +49,6 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
-  void _pushSaved() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      final Iterable<ListTile> tiles = _savedWordpairs.map((WordPair pair) {
-        return ListTile(
-          title: Text(pair.asPascalCase, style: TextStyle(fontSize: 16.0)),
-        );
-      });
-      final List<Widget> divided =
-          ListTile.divideTiles(context: context, tiles: tiles).toList();
-
-      return Scaffold(
-          appBar: AppBar(title: Text('Saved Wordpairs')),
-          body: ListView(children: divided));
-    }));
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -87,9 +70,7 @@ class RandomWordsState extends State<RandomWords> {
                       ListTile.divideTiles(context: context, tiles: tiles)
                           .toList();
 
-                  return Scaffold(
-                      appBar: AppBar(title: Text('Saved Wordpairs')),
-                      body: ListView(children: divided));
+                  return Another(divided: divided);
                 }));
               })
         ],

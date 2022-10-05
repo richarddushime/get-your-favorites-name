@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, annotate_overrides
 
 import 'package:flutter/material.dart';
-import './random_words.dart';
+import 'screens/random_words.dart';
 
 void main() => runApp(MyApp());
 
